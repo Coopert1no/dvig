@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dvig", "dvig\dvig.vcxproj", "{733FCE1A-C13F-482C-B7E0-69DB25F2CC4B}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sandbox", "sandbox\sandbox.vcxproj", "{44CD7E99-E5D7-482D-A00B-2E32BD02DC62}"
+	ProjectSection(ProjectDependencies) = postProject
+		{733FCE1A-C13F-482C-B7E0-69DB25F2CC4B} = {733FCE1A-C13F-482C-B7E0-69DB25F2CC4B}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
