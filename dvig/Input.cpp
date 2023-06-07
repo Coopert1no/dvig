@@ -38,14 +38,19 @@ namespace dvig {
 		switch (uMsg) {
 			case WM_CLOSE:
 				event.type = EventType::Close;
+				_events.push_back(event);
 				break;
 			case WM_KEYDOWN:
 				event.type = EventType::KeyPressed;
 				event.key_code = static_cast<uint32_t>(wParam);
+				_events.push_back(event);
+
 				break;
+			default:
+				return DefWindowProc(hwnd, uMsg, wParam, lParam);
 		}
 
-		_events.push_back(event);
-		return DefWindowProc(hwnd, uMsg, wParam, lParam);
+		//return DefWindowProc(hwnd, uMsg, wParam, lParam);
+		return {};
 	}
 }

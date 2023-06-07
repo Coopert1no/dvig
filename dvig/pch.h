@@ -5,6 +5,7 @@
 #include <filesystem>
 #include <iostream>
 #include <chrono>
+#include <unordered_map>
 
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>

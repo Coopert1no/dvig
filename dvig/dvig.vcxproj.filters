@@ -3,9 +3,18 @@
   <ItemGroup>
     <ClInclude Include="App.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Renderer.h" />
+    <ClInclude Include="Input.h" />
+    <ClInclude Include="Utils.h" />
+    <ClInclude Include="KeyCodes.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="App.cpp" />
     <ClCompile Include="pch.cpp" />
+    <ClCompile Include="Renderer.cpp" />
+    <ClCompile Include="Input.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="shaders\core\basic.hlsl" />
   </ItemGroup>
 </Project>
