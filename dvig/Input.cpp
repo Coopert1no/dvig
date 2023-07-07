@@ -17,7 +17,7 @@ namespace dvig {
 
 		return false;
 	}
-
+	
 	void Input::init(HWND hwnd) {
 		_hwnd = hwnd;
 	}

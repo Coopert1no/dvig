@@ -13,4 +13,6 @@ public:
 
 private:
 	ComPtr<ID3D11Buffer> _vertex_buffer;
+	dvig::Shared<dvig::VertexShader> _vertex_shader;
+	dvig::Shared<dvig::PixelShader> _pixel_shader;
 };

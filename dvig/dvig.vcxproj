@@ -146,8 +146,10 @@
     <ClInclude Include="App.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="KeyCodes.h" />
+    <ClInclude Include="Macros.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Renderer.h" />
+    <ClInclude Include="Types.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <ItemGroup>

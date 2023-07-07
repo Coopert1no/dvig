@@ -1,21 +1,19 @@
 // TODO:
-// [ ] Better shader layout struct
-// [ ] Reszie swap chain
-// [ ] App::go_fullscreen(), App::toggle_fullscreen()
-// [ ] Borderless window fullscreen, Real fullscreen
-// [ ] Camera: Orhographic, Perspective
-// [ ] draw_rect for scene, draw_rect_im if no scene is bound
-// [ ] Batch
-// [ ] Sound
-// [ ] ECS (entt)
-// [ ] Core Components, Systems (e.g. Drawable, Input)
-// [ ] Director, Scene. Director manages scenes, Scene manages entities.
-//     e.g.: 
-//     director()->push_scene(level1_scene);
-//     director()->push_scene(ui_scene);
-//     director()->remove_scene(ui_scene), stop_scene_update(level1_scene)
-//     Systems are just functions that get Scene*. Scene* has a pointer to the director.
-//     Any system can manage scenes. To create a fadeout to switch scenes for example.
+// * vertex buffer for quad should be 6 vertices, not 4 lol
+// * add color to draw_quad
+// * Texture
+// * draw_quad(), draw_rect() to renderer?
+// * Uniform buffer abstraction. Change fields by name
+// * Abstract shader layout struct
+// * Resize
+// * App::go_fullscreen(), App::toggle_fullscreen()
+// * Rasterizer State
+// * Borderless window fullscreen, Real fullscreen
+// * Camera: Orhographic, Perspective
+// * Core Components, Systems (e.g. Drawable, Input)
+
+// Milestone:
+// Draw a bunch of rects with camera that you can control
 
 #include "pch.h"
 #include "App.h"
@@ -69,6 +67,11 @@ namespace dvig {
 		return std::chrono::duration_cast<std::chrono::duration<float>>(current_time - _start_time).count();
 	}
 
+	float App::window_aspect_ratio() const {
+		auto size = window_size();
+		return (float)size.x / (float)size.y;
+	}
+
 	glm::ivec2 App::window_size() const {
 		glm::ivec2 result = {};
 		RECT client_rect;
@@ -87,6 +90,7 @@ namespace dvig {
 		Input::init(_hwnd);
 		_renderer.init(_app_spec, _hwnd);
 		_renderer.compile_core_shaders(*this);
+		_renderer.create_core_vertex_buffers();
 	}
 
 	void App::create_window() {
@@ -96,7 +100,7 @@ namespace dvig {
 		window_class.lpfnWndProc = Input::window_proc;
 		window_class.hInstance = GetModuleHandle(nullptr);
 		window_class.lpszClassName = className;
-
+ 
 		RegisterClass(&window_class);
 
 		const DWORD windowStyle = WS_OVERLAPPEDWINDOW;

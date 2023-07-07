@@ -27,6 +27,7 @@ namespace dvig {
 		// Returns time since init()
 		float get_time();
 
+		float window_aspect_ratio() const;
 		glm::ivec2 window_size() const;
 
 		const Renderer& renderer() const { return _renderer; }
